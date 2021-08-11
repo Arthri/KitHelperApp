@@ -37,7 +37,9 @@ namespace KitHelperApp
                 resDict.Add(ktp.Key, ktp.Value);
             }
 
-            idMap = idMap.ToDictionary(i => i.Key, i =>
+            idMap = idMap
+                .Where(kvp => kvp.Key > 0)
+                .ToDictionary(i => i.Key, i =>
             {
                 if (resDict.TryGetValue(i.Value, out var str))
                 {
