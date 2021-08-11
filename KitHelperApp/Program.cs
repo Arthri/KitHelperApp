@@ -104,10 +104,12 @@ namespace KitHelperApp
                         itemName = itemID < 0
                             ? idMap[ItemID.FromNetId(itemID)]
                             : idMap[itemID];
+                        Console.WriteLine($"{kitName} contains an air item");
                     }
                     else
                     {
-                        itemName = "HOW DARE YOU PUT ITEM ID 0";
+                        Console.WriteLine($"{kitName}/ Stack: {item.Stack}, Probability: {item.Probability * 100}% lacks an item ID");
+                        itemName = "**BLANK**";
                     }
                     var result = $"- `{item.Probability * 100}%` {item.Stack ?? 0} `{itemName}`.";
                     if (item.GiveFor > 0)
