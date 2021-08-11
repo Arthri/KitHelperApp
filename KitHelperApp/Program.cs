@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +14,12 @@ namespace KitHelperApp
     {
         public static void Main(string[] args)
         {
-            var lang = "en-US";
+            Console.Write("Specify a locale(Enter for en-US): ");
+            var lang = Console.ReadLine();
+            if (lang == "")
+            {
+                lang = "en-US";
+            }
             Console.WriteLine($"Fetching Item Names for locale: {lang}...");
             var idMap = typeof(ItemID)
                 .GetFields(BindingFlags.Public | BindingFlags.Static)
