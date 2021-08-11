@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -63,7 +63,10 @@ namespace KitHelperApp
             for (var i = 0; i < kits.Length; i++)
             {
                 var kit = kits[i];
-                sb.AppendLine("# " + (i < names.Length ? names[i] : "Unnamed"));
+                var kitName = i < names.Length
+                    ? names[i]
+                    : "Unnamed";
+                sb.AppendLine("# " + kitName);
                 if (kit.HP != null)
                 {
                     sb.AppendLine(string.Format("**HP:** `{0}`", kit.HP));
