@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -97,7 +97,10 @@ namespace KitHelperApp
                     string itemName;
                     if (item.ID != null)
                     {
-                        itemName = idMap[item.ID.Value];
+                        var itemID = item.ID.Value;
+                        itemName = itemID < 0
+                            ? idMap[ItemID.FromNetId(itemID)]
+                            : idMap[itemID];
                     }
                     else
                     {
