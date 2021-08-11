@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -138,9 +138,6 @@ namespace KitHelperApp
 
     public class Kit
     {
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
         [JsonProperty("hp")]
         public int? HP { get; set; }
 
